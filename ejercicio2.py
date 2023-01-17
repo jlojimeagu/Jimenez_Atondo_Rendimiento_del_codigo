@@ -34,13 +34,11 @@ def check_user(documento):
             lista.append(datos)
             nombre = check_username(datos[0])
             dni = check_nif(datos[1])
-            correcion.append(f'{nombre},{dni}')
-            print(correcion)
-        writer = csv.writer(csvfile, dialect=csv.excel)
-        for check in correcion:
-            writer.writerows(f'{check}\n')
+            correcion.append([nombre, dni])
+    with open('salida.csv', 'w', encoding='utf-8', newline='') as csvfil:
+        writer = csv.writer(csvfil, delimiter=',', dialect=csv.excel)
+        for che in correcion:
+            writer.writerow(che)
 
 
-
-print(check_user("50.csv"))
-print(cProfile.run("check_user('50.csv')"))
+cProfile.run("check_user('1000.csv')")
