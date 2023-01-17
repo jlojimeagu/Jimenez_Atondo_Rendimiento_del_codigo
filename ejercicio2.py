@@ -1,3 +1,5 @@
+import cProfile
+import csv
 nif_dict = {'0': 'T', '1': 'R', '2': 'W', '3': 'A', '4': 'G', '5': 'M', '6': 'Y', '7': 'F', '8': 'P', '9': 'D',
             '10': 'X', '11': 'B', '12': 'N', '13': 'J', '14': 'Z', '15': 'S', '16': 'Q', '17': 'V', '18': 'H',
             '19': 'L', '20': 'C', '21': 'K', '22': 'E'}
@@ -15,13 +17,30 @@ def check_nif(nif):
         good_num = nif_dict[str(check)]
     return num + good_num
 
-def check_username(nombre, apellido):
+def check_username(nombre):
     """
     :param nombre: el nombre de la persona
-    :param apellido: el apellido o apellidos.
     :return:retorna su respectivo dato con la inicial en
     mayuscula
     """
-    return nombre.title() + ' ' + apellido.title()
+    return nombre.title()
 
-print(check_username("juan miguel","jimenez aguas"))
+def check_user(documento):
+    with open(documento, encoding="utf-8") as csvfile:
+        lista = []
+        correcion = []
+        reader = csv.reader(csvfile, delimiter=",", dialect=csv.excel)
+        for datos in reader:
+            lista.append(datos)
+            nombre = check_username(datos[0])
+            dni = check_nif(datos[1])
+            correcion.append(f'{nombre},{dni}')
+            print(correcion)
+        writer = csv.writer(csvfile, dialect=csv.excel)
+        for check in correcion:
+            writer.writerows(f'{check}\n')
+
+
+
+print(check_user("50.csv"))
+print(cProfile.run("check_user('50.csv')"))
