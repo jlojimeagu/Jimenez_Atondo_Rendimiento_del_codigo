@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="Ejercicio1.R1" />
+          <option value="Ejercicio1.G1" />
+          <option value="Ejercicio1.B1" />
+          <option value="Ejercicio1.R2" />
+          <option value="Ejercicio1.G2" />
+          <option value="Ejercicio1.B2" />
+          <option value="Ejercicio1.RN" />
+          <option value="Ejercicio1.GN" />
+          <option value="Ejercicio1.BN" />
+          <option value="Ejercicio1.Y1" />
+          <option value="Ejercicio1.Y2" />
+          <option value="Ejercicio1.YN" />
+          <option value="Ejercicio1.*" />
+          <option value="Ejercicio3.n" />
+          <option value="Ejercicio3.m" />
+          <option value="Ejercicio3.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
